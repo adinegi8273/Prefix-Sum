@@ -90,3 +90,47 @@ using namespace std;
 //     cout<<solve(arr,n);
 //     return 0;
 // }
+
+//Problem 3 - Find Maximum Balanced XOR Subarray Length (New pattern)
+
+// Problem Statement - Given an integer array nums, return the length of the longest subarray that has a bitwise XOR of zero and contains an equal number of even and odd numbers. If no such subarray exists, return 0.
+
+// class Solution {
+// public:
+//     int maxBalancedSubarray(vector<int>& nums) {
+        
+//         map<pair<int,int>,int> mpp;
+
+//         //i need to store the first position of a unique pair ie, (even_odd_count,xor)
+
+//         int pref_xor = 0;
+//         int evenOddDiff = 0;
+//         mpp[{0,0}] = -1;
+
+//         int res = INT_MIN;
+//         int n = nums.size();
+//         for(int i=0;i<n;i++){
+
+//             if(nums[i] % 2 == 1){
+//                 //odd number
+//                 evenOddDiff--;
+//             }
+//             else{
+//                 evenOddDiff++;
+//             }
+
+//             pref_xor = pref_xor ^ nums[i];
+
+//             if(mpp.count({pref_xor,evenOddDiff})){
+
+//                 //agar aaya tha so maximize the o/p length
+//                 res = max(res, i - mpp[{pref_xor,evenOddDiff}]);
+//             }
+//             else{
+//                 mpp[{pref_xor,evenOddDiff}] = i;
+//             }
+//         }
+//         if(res == INT_MIN) return 0;
+//         return res;
+//     }
+// };
