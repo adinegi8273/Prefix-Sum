@@ -70,8 +70,7 @@
 
     we create another matrix prefix with same dimensions and find
 
-    prefix[i][j] = arr[i][j] + prefix[i-1][j] (left) + prefix[i][j-1](top) - prefix[i-1][j-1] (overlapping);
-
+    prefix[i][j] = arr[i][j] + prefix[i-1][j] (left) + prefix[i][j-1](top) - prefix[i-1][j-1] (overlapping); ---> Simulate it by taking the prefix sum of roiws first and then prefix sum of columns
 
     now to extract the sum of submatrix ranging from (top,left)->(bottom,right) we use this formula
 
@@ -133,4 +132,73 @@
 //     return ans;
 // }
 
+
+// -----------------------------------------------------------------------------------------------------------------
+
+
+// Problem Statement 2 - 
+
+// You are given a 2D array (matrix) of integers with at least 3 rows and 3 columns.
+
+// An hourglass in the matrix is a subset of values with the following shape:
+
+// a b c
+//   d
+// e f g
+
+
+// That is, for a position (i, j), the hourglass consists of:
+
+// Top row: matrix[i][j], matrix[i][j+1], matrix[i][j+2]
+
+// Middle: matrix[i+1][j+1]
+
+// Bottom row: matrix[i+2][j], matrix[i+2][j+1], matrix[i+2][j+2]
+
+// Task
+
+// Find and return the maximum hourglass sum in the given matrix.
+
+// Input
+
+// A 2D integer array matrix of size m × n
+
+// m ≥ 3 and n ≥ 3
+
+// Output
+
+// A single integer representing the maximum hourglass sum.
+
+// Constraints
+
+// -10^9 ≤ matrix[i][j] ≤ 10^9
+
+// 3 ≤ m, n ≤ 100 (may vary depending on platform)
+
+
+// Example
+// Input
+// 1 1 1 0 0 0
+// 0 1 0 0 0 0
+// 1 1 1 0 0 0
+// 0 0 2 4 4 0
+// 0 0 0 2 0 0
+// 0 0 1 2 4 0
+
+// Output
+// 19
+
+// Explanation
+
+// The hourglass with the maximum sum is:
+
+// 2 4 4
+//   2
+// 1 2 4
+
+
+// Sum = 2 + 4 + 4 + 2 + 1 + 2 + 4 = 19
+
+
+// Approach - Using a nomal approach will work and will be more efficient than the approach using prefix sums
 
