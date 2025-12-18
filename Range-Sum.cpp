@@ -7,6 +7,7 @@
 
 // 1. Check if all integers in a range are covered
 // 2. Corporate flight bookings
+// 3. Range Sum Query 2D - Immutable (not solved but it's on leetcode) 
 
 
 #include<bits/stdc++.h>
@@ -75,7 +76,33 @@ using namespace std;
 // }
 
 
-//Approach 2 - 
+//Approach 2 - Using difference array
+
+
+// bool isCovered(vector<vector<int>>& ranges, int left, int right) {
+        
+//         vector<int> interval(52,0);//consider if right of any trange is 50 then we have tp mark 51 -1 right
+
+//         //maintain a difference array
+//         for(auto range:ranges){
+
+//             int l = range[0];
+//             int r = range[1];
+
+//             interval[l] += 1;
+//             interval[r+1] -= 1;
+//         }
+
+//         //mainatin a predfix sum
+
+//         for(int i=1;i<52;i++) interval[i] += interval[i-1];
+
+//         for(int i=left;i<=right;i++){
+//             if(interval[i] < 1) return false;//because this is not covererd by any of the range
+//         }
+
+//         return true;
+// }
 
 // int main(){
 
@@ -116,3 +143,31 @@ using namespace std;
 
 
 
+// vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
+        
+
+//         vector<int> flights(n+2,0);
+
+//         for(auto booking:bookings){
+
+//             int first = booking[0];
+//             int last = booking[1];
+//             int seats = booking[2];
+//             flights[first] += seats;
+//             flights[last+1] -= seats;
+//         }
+
+//         //now take the prefix sum of this difference array and then you will get the nuber of resserved seats for each dflight
+
+//         for(int i=1;i<flights.size();i++){
+//             flights[i] += flights[i-1];
+//         }
+
+//         vector<int> res(n);
+
+//         for(int i=1;i<=n;i++){
+//             res[i-1] = flights[i];
+//         }
+
+//         return res;
+// }
