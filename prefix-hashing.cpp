@@ -2,6 +2,9 @@
 
 using namespace std;
 
+// ------------------------------------------------------------------------------------------------------------------
+
+
 // Problem 1 - Find the longest subarray equals k
 // Prefix array + hashing
 
@@ -44,6 +47,8 @@ using namespace std;
 //     cout<<solve(arr,n,k);
 // }
 
+
+// ---------------------------------------------------------------------------------------------------------------------
 
 // Problem 2 - Find the longest subarray in which the even count and the odd count is similar
 
@@ -91,6 +96,9 @@ using namespace std;
 //     return 0;
 // }
 
+
+// ------------------------------------------------------------------------------------------------------------
+
 //Problem 3 - Find Maximum Balanced XOR Subarray Length (New pattern)
 
 // Problem Statement - Given an integer array nums, return the length of the longest subarray that has a bitwise XOR of zero and contains an equal number of even and odd numbers. If no such subarray exists, return 0.
@@ -134,3 +142,43 @@ using namespace std;
 //         return res;
 //     }
 // };
+
+// --------------------------------------------------------------------------------------------------------------
+
+// Problem 4 - Find the longest substring containing vowels in even count
+
+// int findTheLongestSubstring(string s) {
+//         int bit = 0;
+
+//         unordered_map<int, int> mpp;
+//         int n = s.size();
+//         mpp[0] = 0;
+//         int len = INT_MIN;
+//         for (int i = 0; i < n; i++) {
+            
+//             bool flag = true;
+//             if (s[i] == 'a') {
+//                 bit = bit ^ (1 << 4);
+//             } else if (s[i] == 'e') {
+//                 bit = bit ^ (1 << 3);
+//             } else if (s[i] == 'i') {
+//                 bit = bit ^ (1 << 2);
+//             } else if (s[i] == 'o') {
+//                 bit = bit ^ (1 << 1);
+//             } else if (s[i] == 'u') {
+//                 bit = bit ^ 1;
+//             }
+//             else{
+//                 flag = false;
+//             }
+
+//             if (mpp.count(bit)) {
+//                 len = max(len, i - mpp[bit] + 1);
+//             } else {
+//                 if(flag == true) mpp[bit] = i+1;
+//                 else mpp[bit] = i;
+//             }
+//         }
+
+//         return (len==INT_MIN)?0:len;
+// }
